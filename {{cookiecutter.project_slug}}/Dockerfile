@@ -13,7 +13,8 @@ SHELL ["conda", "run", "-n", "mlops", "/bin/bash", "-c"]
 COPY . .
 
 # Install the packages from the requirements file
-RUN pip install -r requirements.txt
+RUN conda activate mlops && \
+    pip install -r requirements.txt
 
 # Expose the API port
 EXPOSE 8000
